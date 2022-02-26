@@ -1,0 +1,99 @@
+.descriptions>h1 {
+    color: rgb(0, 45, 113);
+}
+
+.descriptions>p {
+    text-align: justify;
+}
+
+body {
+    background-attachment: fixed;
+    background-size: contain;
+}
+
+.descriptions {
+    text-align: center;
+    width: 70%;
+    border-radius: 20px;
+    margin: 10px auto;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.shamandesc {
+    border-radius: 100%;
+    width: 120px;
+    border: 2px solid rgb(0, 0, 0);
+    padding: 5px;
+}
+
+.shamanlogo {
+    width: 100%;
+    border-radius: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#greet {
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgba(56, 0, 78, 0.5);
+    margin: 10px;
+    margin-top: 0px;
+    border: 1px solid white;
+}
+
+h1 {
+    font-family: 'Audiowide', cursive;
+    font-size: 35px;
+}
+
+p,
+a {
+    font-family: 'Audiowide', cursive;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: greenyellow;
+}
+
+#maincontainer {
+    border-radius: 100%;
+    background-attachment: fixed;
+    background-size: contain;
+    margin-left: 270px;
+    margin-right: 270px;
+    text-align: center;
+    color: white;
+    padding: 30px;
+}
+
+#maincontainer>div {
+    text-align: center;
+}
+
+.shamanstyle {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 100%;
+    margin: 20px auto;
+}
+
+#middlerow {
+    display: inline-block;
+}
+
+.middlerows {
+    text-align: center;
+}
