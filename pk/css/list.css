@@ -1,0 +1,23 @@
+#container{
+    text-align: center;
+}
+#image{
+    width: 20%;
+}
+.btn-group{
+    margin: 20px;
+}
+#header{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 50px;
+    color: rgb(255, 92, 241);
+}
+#dibody{
+    background-image: url('../img/scenes/potion.jpeg');
+    background-size: cover;
+    background-attachment: fixed;    
+}
+#mainmask{
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 1000px;
+}

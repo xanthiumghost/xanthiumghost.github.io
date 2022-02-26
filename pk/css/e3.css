@@ -1,0 +1,21 @@
+#big.part1 {
+    color: rgb(126, 174, 247);
+    font-family: 'Short Stack', cursive;
+}
+
+#big.part2 {
+    color: rgb(255, 162, 101);
+    font-family: 'Short Stack', cursive;
+}
+
+#dp.part1,
+#dp.part2 {
+    color: rgb(154, 255, 129);
+    font-family: 'Patrick Hand SC', cursive;
+}
+
+.common {
+    color: rgba(255, 255, 255, 0.76);
+    font-family: 'Sunshiney', cursive;
+    font-size: 35px;
+}

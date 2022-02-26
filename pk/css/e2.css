@@ -1,0 +1,21 @@
+#big.part1 {
+    color: rgb(0, 174, 255);
+    font-family: 'Julee', cursive;
+}
+
+#big.part2 {
+    color: rgba(255, 0, 234, 0.815);
+    font-family: 'Julee', cursive;
+}
+
+#dp.part1,
+#dp.part2 {
+    color: rgb(255, 255, 255);
+    font-family: 'Gamja Flower', cursive;
+}
+
+.common {
+    color: rgb(0, 0, 0);
+    font-family: 'Gaegu', cursive;
+    font-size: 35px;
+}

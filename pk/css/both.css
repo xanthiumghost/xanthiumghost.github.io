@@ -1,0 +1,15 @@
+#big.part1 {
+    color: rgb(252, 153, 178);
+    font-family: 'Schoolbell', cursive;
+}
+
+#big.part2 {
+    color: rgb(155, 255, 189);
+    font-family: 'Schoolbell', cursive;
+}
+
+#dp.part1,
+#dp.part2 {
+    color: rgb(158, 158, 158);
+    font-family: 'Rancho', cursive;
+}
