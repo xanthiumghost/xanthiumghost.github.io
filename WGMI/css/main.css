@@ -1,0 +1,63 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}
+
+#container>img {
+    border: 1px solid rgb(0, 0, 0);
+    width: 80px;
+    margin: 5px;
+    border-radius: 100%;
+    padding: 3px;
+}
+
+#container>img:hover {
+    border: 4px dashed rgb(0, 0, 0);
+    padding: 0px;
+}
+
+#hover {
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    visibility: hidden;
+    width: 100%;
+    padding: 10px;
+    border-top: 3px solid purple;
+    border-bottom: 3px solid purple;
+}
+
+#intro {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Righteous', cursive;
+}
+
+#greet {
+    text-align: center;
+    color: white;
+    font-family: 'Redressed', cursive;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+#textar {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    resize: none;
+    color: rgb(203, 0, 253);
+    outline: none;
+}
+
+@media only screen and (min-width: 600px) {
+    #textar {
+        font-size: 20px;
+    }
+}
