@@ -1,0 +1,66 @@
+.image {
+    width: 25%;
+    text-align: center;
+}
+.part2,
+.part1 {
+    display: inline-block;
+    vertical-align: middle;
+}
+.images {
+    width: 100%;
+}
+
+.bothparts {
+    text-align: center;
+}
+.partwo .dialogue{
+    text-align: right;
+    vertical-align: middle;
+}
+.partone .dialogue{
+    text-align: left;
+    vertical-align: middle;
+}
+p{
+    font-size: 30px;
+}
+.com{
+    font-family: 'Special Elite', cursive;
+    color: rgba(0, 255, 0, 0.8);
+    padding-bottom: 10px;
+}
+.dialogue {
+    width: 73%;
+    font-family: 'Oswald', sans-serif;
+
+
+}
+.speaker{
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 30px;
+    font-family: 'Creepster', cursive;
+}
+#inline {
+    display: inline-block;
+    vertical-align: top;
+}
+@media screen and (min-width: 601px) {
+    .partone .dialogue,
+    .partwo .dialogue{
+        font-size: 40px;
+    }
+    .speaker {
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .partone .dialogue,
+    .partwo .dialogue {
+        font-size: 40px;
+    }
+    .speaker {
+        font-size: 20px;
+    }
+}
+
