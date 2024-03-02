@@ -24,11 +24,18 @@
     #logotitle {
         text-align: center;
         border: 1px solid orangered;
-        border-radius: 10px;
-        width: 85%;
+        border-radius: 15px;
+        width: 95%;
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("img/avicii.webp");
+        margin: 10px auto;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    #mask{
         background-color: rgba(255, 68, 0, 0.2);
         padding: 10px;
-        margin: 20px auto;
+        border-radius: 15px;
     }
 
     #title{
@@ -49,9 +56,11 @@
 <body>
     <div id="container">
         <div id="logotitle">
-            <img src="img/bom.png" class="titleimg">
-            <p style="font-size: 50px;" id="title">THE LAST STAND</p>
-            <img src="img/skull.png" class="titleimg">
+            <div id="mask">
+                <img src="img/bom.png" class="titleimg">
+                <p style="font-size: 50px;" id="title">THE LAST STAND</p>
+                <img src="img/skull.png" class="titleimg">
+            </div>
         </div>
     </div>
     <p id="count"></p>
