@@ -32,24 +32,42 @@
         background-repeat: no-repeat;
         background-position: center;
     }
-    #mask{
+
+    #mask {
         background-color: rgba(255, 68, 0, 0.2);
         padding: 10px;
         border-radius: 15px;
     }
 
-    #title{
+    #title {
         font-family: "Bungee Spice", sans-serif;
         font-weight: 400;
         font-style: normal;
     }
-    .titleimg{
+
+    .titleimg {
         width: 100px;
     }
-    body{
-        background-color: black;
+
+    body {
+        background-color: rgb(0, 0, 0);
         color: white;
         padding: 20px;
+    }
+
+    table,
+    td,
+    th {
+        border: 1px solid orangered;
+        
+    }
+
+    #table1 {
+        border-collapse: separate;
+    }
+
+    #table2 {
+        border-collapse: collapse;
     }
 </style>
 
@@ -61,6 +79,22 @@
                 <p style="font-size: 50px;" id="title">THE LAST STAND</p>
                 <img src="img/skull.png" class="titleimg">
             </div>
+        </div>
+        <div id="details">
+            <table id="table2">
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                </tr>
+                <tr>
+                    <td>Peter</td>
+                    <td>Griffin</td>
+                </tr>
+                <tr>
+                    <td>Lois</td>
+                    <td>Griffin</td>
+                </tr>
+            </table>
         </div>
     </div>
     <p id="count"></p>
