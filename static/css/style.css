@@ -1,0 +1,17 @@
+/* Additional custom styles - keeping to a minimum as per guidelines */
+
+.activity-form {
+    margin-bottom: 2rem;
+}
+
+/* Dark theme adjustments for better readability */
+.table {
+    --bs-table-color: var(--bs-light);
+    --bs-table-bg: var(--bs-dark);
+    --bs-table-border-color: var(--bs-gray-700);
+}
+
+/* Flash message styling */
+.alert {
+    margin-top: 1rem;
+}
