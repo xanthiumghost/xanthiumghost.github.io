@@ -1,0 +1,23 @@
+#float {
+    height: fit-content;
+    width: fit-content;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 100;
+    position: fixed;
+    color: white;
+    font-size: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: lef;
+    border-end-end-radius: 30px;
+}
+#what {
+    margin: 10px;
+}
+
+#dibody{
+    background-image: url('img/scenes/back.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+}

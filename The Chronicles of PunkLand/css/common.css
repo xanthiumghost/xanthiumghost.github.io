@@ -1,0 +1,37 @@
+#main {
+    text-align: center;
+}
+#dp {
+    width: 20%;
+
+}
+#big {
+    width: 75%;
+}
+.part2,
+.part1 {
+    display: inline-block;
+    vertical-align: middle;
+}
+#big.part1 {
+    text-align: left;
+    font-size: 35px;
+}
+#big.part2 {
+    text-align: right;
+    font-size: 35px;
+}
+#dp.part1,
+#dp.part2 {
+    font-size: 24px;
+}
+.common {
+    font-size: 30px;
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0px;
+}
+.img {
+    width: 90%
+}

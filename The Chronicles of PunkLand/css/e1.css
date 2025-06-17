@@ -1,0 +1,149 @@
+#morningmask{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+#chamber{
+    background-image: url("../img/scenes/chamb.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#chambermask{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.image {
+    width: 20%;
+    text-align: center;
+}
+
+#morning{
+    background-image: url("../img/scenes/map.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#space{
+    margin: 10px;
+}
+#night{
+    background-image: url("../img/scenes/cast.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#nightmask{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#morning .comment .commentary{
+    color: rgb(255, 255, 255);
+}
+#chamber .comment .commentary{
+    color: rgb(255, 255, 255);
+}
+#night .comment .commentary{
+    color: rgb(255, 255, 255);
+}
+#morning .partwo{
+    color: rgb(124, 255, 238);
+}
+#morning .partone{
+    color: rgb(255, 175, 110);
+}
+#chamber .partone{
+    color: rgb(180, 133, 255);
+}
+#night .partone{
+    color: rgb(136, 255, 146);
+}
+
+.bothparts {
+    text-align: center;
+}
+.comment .commentary{
+    color: rgb(0, 0, 0);
+    margin-bottom: 30px;
+}
+.partwo .dialogue{
+    text-align: right;
+}
+.partone .dialogue{
+    text-align: left;
+}
+p, h1{
+    margin: 0px;
+}
+#themap{
+    font-size: 100px;
+    color: rgba(255, 255, 0, 0.664);
+    font-family: 'Roboto Slab', serif;
+}
+.commentary{
+    font-family: 'Comic Neue', cursive;
+    text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.images {
+    width: 100%;
+}
+
+.dialogue {
+    width: 78%;
+    font-family: 'Baloo Tamma 2', cursive;
+
+
+}
+.speaker{
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 30px;
+    font-family: 'Baloo Bhaina 2', cursive;
+}
+#inline {
+    display: inline-block;
+    vertical-align: top;
+}
+
+@media screen and (min-width: 601px) {
+    /*relative to different chapters
+    things to be custom compulsory are:
+    font sizes and colors of,
+    heading
+    commentary
+    dialogues/speech
+    speaker
+    remy name not in punkland list
+    not in migrants either
+    he's a fraud.
+    */
+
+
+    .partone .dialogue,
+    .partwo .dialogue{
+        font-size: 40px;
+    }
+
+    .commentary{
+        font-size: 50px;
+    }
+
+    .speaker {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .partone .dialogue,
+    .partwo .dialogue {
+        font-size: 24px;
+    }
+    .commentary{
+        font-size: 30px;
+    }
+
+    .speaker {
+        font-size: 11px;
+    }
+}

@@ -1,0 +1,255 @@
+<html>
+
+<head>
+    <title>Whale.io</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Mansalva|Gamja+Flower|Aladin&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../../img/icons/whale.png" type="image/x-icon">
+</head>
+
+<body>
+    <div id="container">
+        <div id="float">
+            <p>This webpage is in development. All features may not be available.
+                Click <span onclick="hide()" style="color: rgb(0, 195, 255);">here</span> to dismiss.
+            </p>
+            <script>
+                function hide() {
+                    document.getElementById('float').style.visibility = 'hidden';
+                }
+            </script>
+        </div>
+        <div style="text-align: center;">
+
+            <img src="../../img/icons/whale.png" width="20%" style="text-align: center;">
+        </div>
+        <div id="greeting">
+            <h2>Welcome to Whale.io! A faster way to travel. You chose our service because you want only the cleanest
+                form of transport. And also because contraptions like aeroplanes are way into the future! <br><span
+                    style="text-align: center;">Pick a plan below to get started!</span></h2>
+        </div>
+        <div id="products">
+            <a name="" class="btn btn-outline-blue" href="#location" role="button" id="priority"
+                onclick="document.getElementsByName('test')">
+                <h1>Slow</h1><br>
+                <p class="excuses">Need to get there at the speed of the Goan government? <br>Starting at 40 Gold Frogs
+                    a day!</p>
+            </a> <br><br>
+            <a name="" class="btn btn-outline-green" href="#location" role="button" id="priority">
+                <h1>Medium</h1><br>
+                <p class="excuses">You know you want to go fast but don't have the gold?<br>Starting at 65 Gold Frogs a
+                    day! </p>
+            </a> <br><br>
+            <a name="" class="btn btn-outline-yellow" href="#location" role="button" id="priority">
+                <h1>Fast</h1><br>
+                <p class="excuses">Got diarrhea but only want to use the Queen of Englands' toilet?<br>Starting at 100
+                    Gold Frogs a day! </p>
+            </a> <br><br>
+            <a name="" class="btn btn-outline-red" href="#location" role="button" id="priority">
+                <h1>Ultra Fast</h1><br>
+                <p class="excuses">You're finally doing it! You are illegally leaving!<br>Starting at 250 Gold Frogs a
+                    day! </p>
+            </a>
+        </div>
+        <br><br><br>
+
+        <div id="location" style="text-align: center; margin-bottom:500px">
+            <h2>Enter co-ordinates for pickup!</h2> <br>
+            <form action="">
+                <label for="label">Latitude: </label>
+                <input type="text" style="margin-right: 10px;">
+                <label for="label">Longitude: </label>
+                <input type="text">
+            </form>
+            <button type="button" class="btn btn-outline-dark">Check Availability</button>
+        </div>
+        <style>
+            #greeting {
+                margin-left: auto;
+                margin-right: auto;
+                padding: 30px;
+
+            }
+
+            h2 {
+                font-size: 50px;
+                color: rgb(0, 140, 255);
+                font-family: 'Mansalva', cursive;
+            }
+
+            #float {
+                height: fit-content;
+                width: fit-content;
+                background-color: rgba(0, 0, 0, 0.75);
+                z-index: 100;
+                position: fixed;
+                color: white;
+                font-size: 20px;
+                margin-right: auto;
+                margin-left: auto;
+                text-align: lef;
+                border-end-end-radius: 30px;
+            }
+
+            h1 {
+                font-size: 60px;
+                font-family: 'Aladin', cursive;
+            }
+
+            .excuses {
+                font-size: 40px;
+                font-family: 'Gamja Flower', cursive;
+            }
+
+            body {
+                background-image: url('../../img/scenes/sea.jpg');
+                background-attachment: fixed;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+
+            #priority {
+                width: 80%;
+                height: 300px;
+                box-shadow: none;
+            }
+
+            #products {
+                text-align: center;
+            }
+
+            .btn-outline-red {
+                color: black;
+                border-color: #ff0000;
+                background-color: rgba(255, 0, 0, 0.5);
+            }
+
+            .btn-outline-red:hover {
+                color: black;
+                background-color: #ff0000;
+                border-color: #ff0000;
+            }
+
+            .btn-outline-yellow {
+                color: black;
+                border-color: yellow;
+                background-color: rgba(255, 255, 0, 0.4);
+            }
+
+            .btn-outline-yellow:hover {
+                color: rgb(0, 0, 0);
+                background-color: yellow;
+                border-color: yellow;
+            }
+
+            .btn-outline-blue {
+                color: black;
+                border-color: #007bff;
+                background-color: #007bff80;
+            }
+
+            .btn-outline-blue:hover {
+                color: black;
+                background-color: #007bff;
+                ;
+                border-color: #007bff;
+                ;
+            }
+
+            .btn-outline-green {
+                color: black;
+                border-color: rgb(0, 255, 0);
+                background-color: rgba(0, 255, 0, 0.5);
+            }
+
+            label {
+                font-family: 'Mansalva', cursive;
+                font-size: 20px;
+            }
+
+            input {
+                background-color: rgba(255, 255, 255, 0);
+                outline: 0px;
+                border: 1px dashed #007bff;
+                padding: 5px;
+                border-radius: 5px;
+                font-family: 'Gamja Flower', cursive;
+                font-size: 20px;
+                color: rgb(0, 0, 0);
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            .btn-outline-green:hover {
+                color: black;
+                background-color: rgb(0, 255, 0);
+                border-color: rgb(0, 255, 0);
+            }
+        </style>
+    </div>
+
+    <div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
