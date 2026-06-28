@@ -1,15 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Log Entry</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        textarea,
+        button {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
+
 <body>
-    <a href="author/index.html">click me</a> <br>
-    <a href="countdown/index.html">and another</a> <br>
-    <a href="main/index.html">and another again</a>
-    <a href="index.html">logger</a>
-    <a href="logs.html">updater</a>
+
+    <h2>Add New Log</h2>
+    <form id="logForm">
+        <label for="description">Description:</label>
+        <textarea id="description" rows="4" required placeholder="What's happening?"></textarea>
+        <button type="submit">Submit Log</button>
+    </form>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // ⚠️ REPLACE THIS WITH YOUR ACTUAL FIREBASE CONFIG
+        const firebaseConfig = {
+            apiKey: "AIzaSyBWl-uJKNPU7Kv7bLLN8cl84AtjDadDSWo",
+            authDomain: "dalogger-3c900.firebaseapp.com",
+            projectId: "dalogger-3c900",
+            storageBucket: "dalogger-3c900.firebasestorage.app",
+            messagingSenderId: "486768430143",
+            appId: "1:486768430143:web:d49fb78c2bb29954d1fc8a",
+            measurementId: "G-3P3RTFVKHT"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        document.getElementById('logForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const description = document.getElementById('description').value;
+
+            // Get Location Coordinates using Browser API
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(async (position) => {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+
+                    try {
+                        // Append data to Firestore
+                        await addDoc(collection(db, "logs"), {
+                            description: description,
+                            latitude: lat,
+                            longitude: lng,
+                            timestamp: serverTimestamp() // Generates accurate date/time on the server
+                        });
+
+                        alert("Log saved successfully!");
+                        document.getElementById('logForm').reset();
+                    } catch (error) {
+                        console.error("Error adding document: ", error);
+                    }
+                }, (error) => {
+                    alert("Location access denied. Please enable location to log.");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        });
+    </script>
 </body>
+
 </html>
