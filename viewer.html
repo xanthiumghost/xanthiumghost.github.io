@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Update History</title>
+    <!-- Include Supabase CDN JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; background: #fdfdfd; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .refresh-btn { background: #28a745; color: white; border: none; padding: 6px 12px; cursor: pointer; border-radius: 4px; font-weight: bold; }
+        .card { border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; background: white; margin-bottom: 15px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .card:first-child { border-left: 5px solid #007bff; }
+        .meta { font-size: 0.85em; color: #666; display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px dashed #eee; padding-bottom: 5px; }
+        .desc { font-size: 1.05em; color: #222; white-space: pre-wrap; line-height: 1.4; }
+        .back-link { display: inline-block; margin-top: 20px; color: #007bff; text-decoration: none; font-weight: bold; }
+        .status-msg { text-align: center; color: #999; margin-top: 40px; font-style: italic; }
+    </style>
+</head>
+<body>
+
+    <div class="header-container">
+        <h2>Global History (Latest First)</h2>
+        <button class="refresh-btn" onclick="fetchHistory()">🔄 Refresh</button>
+    </div>
+    
+    <div id="historyContainer">
+        <div class="status-msg">Connecting to database...</div>
+    </div>
+
+    <a href="index.html" class="back-link">← Send another update</a>
+
+    <script>
+        // REPLACE THESE WITH YOUR ACTUAL SUPABASE CREDENTIALS (MUST MATCH INDEX.HTML)
+        const SUPABASE_URL = "https://qdwqxzttecmdtubuwngi.supabase.co";
+        const SUPABASE_KEY = "sb_publishable_5qVWw6rNTETrI1YJjITAJg_ISTEUyiS";
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        async function fetchHistory() {
+            const container = document.getElementById('historyContainer');
+            
+            // Pull history from database ordered by newest ID first
+            const { data: updates, error } = await supabase
+                .from('updates')
+                .select('*')
+                .order('id', { ascending: false });
+
+            if (error) {
+                container.innerHTML = `<div class="status-msg" style="color: red;">Error fetching data: ${error.message}</div>`;
+                return;
+            }
+
+            if (!updates || updates.length === 0) {
+                container.innerHTML = '<div class="status-msg">No updates found in the database cloud yet.</div>';
+                return;
+            }
+
+            container.innerHTML = ''; // Clear status message
+            
+            updates.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                
+                const hasLocation = item.latitude && item.longitude;
+                const locText = hasLocation ? `${item.latitude}, ${item.longitude}` : "No Location Provided";
+
+                card.innerHTML = `
+                    <div class="meta">
+                        <span>🕒 ${item.device_time}</span>
+                        <span>📍 ${locText}</span>
+                    </div>
+                    <div class="desc">${escapeHTML(item.description)}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function escapeHTML(str) {
+            if (!str) return '';
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
+        // Run automatically when the page loads
+        fetchHistory();
+    </script>
+</body>
+</html>

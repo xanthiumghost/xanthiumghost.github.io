@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Status Update</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .field {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 80px;
+            padding: 8px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        #status {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Send Status Update</h2>
+
+    <div class="field">
+        <label for="desc">Description:</label>
+        <textarea id="desc" placeholder="What's happening?"></textarea>
+    </div>
+
+    <button id="sendBtn" onclick="sendData()" disabled>Fetching location...</button>
+    <div id="status">Please allow location access to proceed.</div>
+
+    <script>
+        const SUPABASE_URL = "https://qdwqxzttecmdtubuwngi.supabase.co";
+        const SUPABASE_KEY = "sb_publishable_5qVWw6rNTETrI1YJjITAJg_ISTEUyiS";
+        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        let latitude = "";
+        let longitude = "";
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    latitude = position.coords.latitude.toString();
+                    longitude = position.coords.longitude.toString();
+                    document.getElementById("sendBtn").disabled = false;
+                    document.getElementById("sendBtn").innerText = "Send Update";
+                    document.getElementById("status").innerText = "Location acquired! Ready to send.";
+                },
+                (error) => {
+                    document.getElementById("status").innerText = "Error: Location access denied or unavailable.";
+                }
+            );
+        }
+
+        async function sendData() {
+            const description = document.getElementById("desc").value.trim();
+            if (!description) {
+                alert("Please enter a description first!");
+                return;
+            }
+
+            document.getElementById("sendBtn").disabled = true;
+            document.getElementById("sendBtn").innerText = "Sending to cloud...";
+
+            const now = new Date();
+            const localDateTime = now.toLocaleString();
+
+            // Insert data into Supabase
+            const { data, error } = await supabase
+                .from('updates')
+                .insert([
+                    {
+                        description: description,
+                        device_time: localDateTime,
+                        latitude: latitude,
+                        longitude: longitude
+                    }
+                ]);
+
+            if (error) {
+                alert("Error sending update: " + error.message);
+                document.getElementById("sendBtn").disabled = false;
+                document.getElementById("sendBtn").innerText = "Send Update";
+            } else {
+                // Success! Head over to the global viewer page
+                window.location.href = "viewer.html";
+            }
+        }
+    </script>
+</body>
+
+</html>
